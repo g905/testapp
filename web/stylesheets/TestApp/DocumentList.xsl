@@ -49,6 +49,21 @@
 					</label>
 				</div>
 				<div>
+                    <label title="Часть имени документа">
+                    Название содержит:
+                        <input size="10" type="text" name="nameContains-0" value="{$req/req:nameContains}"/>
+                    </label>
+				</div>
+				<div>
+                    <label title="Формат">
+                    Формат:
+                        <select name="outputFormat-0" value="{$req/req:outputFormat}">
+                            <option value="html">html</option>
+                            <option value="pdf">pdf</option>
+                        </select>
+                    </label>
+				</div>
+				<div>
 					<button  type="submit">Отправить</button>
 				</div>
 			</fieldset>
@@ -63,6 +78,8 @@
 				<tr>
 					<th>Дата</th>
 					<th>Наименование</th>
+					<th>Ключевые слова</th>
+					<th>Удален</th>
 				</tr>
 				<xsl:for-each select="obj:Document">
 					<tr>
@@ -74,6 +91,8 @@
 								<xsl:value-of select="obj:displayName"/>
 							</a>
 						</td>
+						<td><xsl:value-of select="obj:keywords"/></td>
+						<td><xsl:value-of select="obj:deleted"/></td>
 					</tr>
 				</xsl:for-each>
 			</table>

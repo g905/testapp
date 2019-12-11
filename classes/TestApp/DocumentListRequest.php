@@ -21,7 +21,18 @@ class TestApp_DocumentListRequest extends Adaptor_XMLBase {
 	 * @var Basictypes_Date
 	 */
 	public $dateEnd;
-
+    /**
+	 * Удален
+	 *
+	 * @var Basictypes_Boolean
+	 */
+	public $deleted;
+	/**
+	 * Название содержит
+	 *
+	 * @var string
+	 */
+	public $nameContains;
 	/**
 	 * Формат вывода
 	 *
@@ -66,6 +77,7 @@ class TestApp_DocumentListRequest extends Adaptor_XMLBase {
 				switch($xr->localName){
 					case "dateStart": $this->dateStart=$xsinil?NULL:new Basictypes_Date($xr->readString(),Adaptor_DataType::XSD); break;
 					case "dateEnd": $this->dateEnd=$xsinil?NULL:new Basictypes_Date($xr->readString(),Adaptor_DataType::XSD); break;
+					case "nameContains": $this->nameContains=$xsinil?NULL:"%".$xr->readString()."%"; break;
 					case "outputFormat": $this->outputFormat=$xsinil?NULL:$xr->readString(); break;
 				}
 			}elseif($xr->nodeType==XMLReader::END_ELEMENT&&$root==$xr->localName){

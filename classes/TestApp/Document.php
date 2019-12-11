@@ -127,7 +127,7 @@ class TestApp_Document extends Adaptor_XMLBase implements Adaptor_Array {
 			if($this->modifyUid!==NULL) {$xw->writeElement("modifyUid",$this->modifyUid);}
 			if($this->deleteDate!==NULL) {$xw->writeElement("deleteDate",$this->deleteDate->LogicalToXSD());}
 			if($this->deleteUid!==NULL) {$xw->writeElement("deleteUid",$this->deleteUid);}
-			if($this->deleted!==NULL) {$xw->writeElement("deleted",$this->deleted);}
+			if($this->deleted!==NULL) {$xw->writeElement("deleted",$this->deleted === "true"?"Да":"Нет");}
 			if($this->containerId!==NULL) {$xw->writeElement("containerId",$this->containerId);}
 			if($this->containerType!==NULL) {$xw->writeElement("containerType",$this->containerType);}
 			if($this->chapterPath!==NULL) {$xw->writeElement("chapterPath",$this->chapterPath);}

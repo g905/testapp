@@ -32,6 +32,9 @@ class Basictypes_Boolean implements Adaptor_DataType{
 	public function LogicalToXSD(){
 		return $this->value?"true":"false";
 	}
+	public function LogicalToYesNo(){
+		return $this->value?"Да":"Нет";
+	}
 	public function LogicalToSQL(){
 		return $this->value?"true":"false";
 	}
